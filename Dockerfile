@@ -1,5 +1,5 @@
 # Use Node.js 16 slim as the base image
-FROM node:18-slim
+FROM node:16-slim
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps --no-audit
 
 # Copy the rest of the application code
 COPY . .
